@@ -6,6 +6,279 @@
     <title>GadgetPedia</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #512da8;
+    background-image: url('https://in.nothing.tech/cdn/shop/files/2560x2040_e8390430-0745-483f-b2ff-f266d1735689_2192x.jpg?v=1710932597');
+}
+
+a {
+    text-decoration: none;
+    color: #333; 
+}
+
+h1, h2 {
+    font-weight: bold;
+}
+
+.fluent-header {
+    background-color: #512da8; /* Updated color */
+    background: linear-gradient(to right, #c9d6ff, #e2e2e2);
+    color: #fff;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo h1 {
+    margin: 0;
+    color: black;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+  }
+  
+  nav ul li {
+    margin-right: 20px;
+    position: relative;
+  }
+  
+  nav ul li a {
+    color: #512da8;
+    text-decoration: none;
+  }
+
+  nav ul li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #512da8;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    transition: width 0.3s ease;
+  }
+
+  nav ul li a:hover::after {
+    width: 100%;
+  }
+  
+  .fluent-header2 {
+    width: 1500px;
+    height: 100px;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    color: #512da8;
+    padding: 30px; 
+  }
+  
+  .fluent-categories {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .fluent-categories h2 {
+    margin-bottom: 10px; 
+    text-align: center; 
+  }
+  
+  .fluent-categories ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .fluent-categories li {
+    margin-right: 20px; /* Increase space between items */
+  }
+  
+  .fluent-categories li a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    position: relative;
+    transition: opacity 0.3s ease;
+  }
+  
+  .fluent-categories img {
+    width: 70px; 
+    height: 50px; 
+    margin-top: 5px; 
+  }
+  
+  /* testing hover */
+
+
+  .fluent-categories li a {
+    display: block;
+    position: relative;
+    transition: transform 0.3s ease;
+  }
+
+  .fluent-categories li a:hover {
+    transform: scale(1.1);
+  }
+
+  .fluent-categories li a::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .fluent-categories li a:hover::after {
+    opacity: 1;
+  }
+
+
+/* Fluent Design Styles with a Colorful Palette */
+.fluent-header, .fluent-hero, .fluent-categories,
+.fluent-featured-gadgets, .fluent-testimonials, .fluent-cta, .fluent-footer {
+    background-color: #512da8; /* Updated color */
+    background: linear-gradient(to right, #c9d6ff, #e2e2e2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border: #333 3px;
+    border-radius: 4px; /* Rounded corners */
+    padding: 20px; /* Consistent padding */
+    margin-bottom: 20px; /* Consistent spacing */
+}
+
+.fluent-header {
+    display: flex; /* Arrange logo and navigation horizontally */
+    justify-content: space-between; /* Space items evenly */
+    align-items: center; /* Align vertically */
+    background-color: #c9d6ff; /* Light blue for header */
+}
+
+.logo {
+    flex: 1; /* Allow logo to grow */
+}
+
+.fluent-hero {
+    background-color: #512da8; /* Updated color */
+    background: linear-gradient(to right, #c9d6ff, #e2e2e2);
+    text-align: center; /* Center content */
+}
+
+.fluent-hero h2 {
+    color: #512da8; /* Blue for hero title */
+}
+
+.fluent-hero button {
+    background-color: #512da8; 
+    color: #c9d6ff; 
+    padding: 10px 20px;
+    border-radius: 4px; 
+    cursor: pointer; 
+    transition: transform 0.3s ease; 
+}
+
+.fluent-hero button:hover {
+    transform: scale(0.9); 
+}
+
+
+.fluent-categories li {
+    display: inline-block;
+    margin-right: 15px; 
+}
+
+.fluent-featured-gadgets .gadget-list {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+}
+
+.fluent-testimonials .testimonial {
+    margin-bottom: 15px; 
+    border-bottom: 1px solid #ddd; 
+    padding-bottom: 10px; 
+}
+
+.fluent-testimonials p {
+    font-style: italic;
+}
+
+.fluent-testimonials span {
+    color: #999; 
+    font-size: 0.8em; 
+}
+
+.fluent-testimonials h2 {
+  color: #512da8;
+}
+
+.fluent-cta {
+    background-color: #c9d6ff; 
+    text-align: center; 
+}
+
+.fluent-cta h2 {
+  color:#512da8
+}
+
+.fluent-cta button {
+    background-color: #512da8; 
+    color: #c9d6ff; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+}
+
+.fluent-footer {
+    background-color: #512da8; 
+    background: linear-gradient(to right, #c9d6ff, #e2e2e2);
+    text-align: center; 
+    padding: 15px; 
+}
+
+
+input[type="text"], input[type="email"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+
+.title {
+  color: whitesmoke;
+  font-size: 50px;
+  position: relative;
+}
+
+.head {
+  font-family: 'Brush Script MT', cursive;
+  color: whitesmoke;
+  font-weight: bold;
+  text-shadow: 4px 4px 4px rgba(0.4, 0.4, 0.4, 0.4);
+}
+
+.accent {
+  font-family: Lucida, cursive;
+  color: #512da8; /* Or any other accent color you prefer */
+  font-weight: bold;
+  text-shadow: 4px 4px 4px rgba(0.4, 0.4, 0.4, 0.4); /* Add a subtle shadow for depth */
+}
+</style>
 <body>
     <header class="fluent-header">
         <div class="logo">
