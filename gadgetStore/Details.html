@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Title Here</title>
+<style>
+    body {
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    .cylindrical-box {
+        width: 600px;
+        height: 50px;
+        background-color: #f0f0f0;
+        border-radius: 25px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        position: absolute;
+        top: 50px; /* Adjust as needed */
+    }
+    .toggle-button {
+        background-color: rgba(255, 255, 255, 0.5);
+        border: none;
+        color: #333;
+        padding: 15px 15px; /* Adjust padding as needed */
+        cursor: pointer;
+        border-radius: 25px; /* Rounded corners for cylindrical shape */
+        transition: background-color 0.3s ease, color 0.3s ease;
+        width: calc(100% / 5 - 20px); /* Adjust width for 5 buttons */
+        margin: 0 2px; /* Adjust margin between buttons */
+        flex-grow: 1; /* Allow buttons to grow to cover the box */
+        text-align: center; /* Center button text */
+    }
+    .toggle-button:hover {
+        background-color: black;
+        color: white;
+    }
+    .details {
+        margin-top: 90px;
+        width: 1000px;
+        height: 750px;
+        background-color: #f0f0f0;
+        border-radius: 20px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+        position: relative;
+        display: flex; /* Added display flex */
+        justify-content: center; /* Center content horizontally */
+        align-items: center; /* Center content vertically */
+    }
+
+    .top-buttons-container {
+        position: absolute;
+        top: 50px;
+        left: 40px;
+        display: flex;
+        z-index: 1;
+    }
+    .top-button {
+        background-color: rgba(255, 255, 255, 0.5);
+        border: none;
+        color: #333;
+        padding: 10px 20px; /* Adjust padding as needed */
+        cursor: pointer;
+        border-radius: 25px; /* Rounded corners for cylindrical shape */
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .top-button:hover {
+        background-color: #a3a3a3;
+        color: white;
+    }
+
+    .image-slider {
+        width: 50%; /* Adjust width as needed */
+        overflow: hidden;
+        position: relative;
+        border: 2px outset;
+        border-radius: 20px;
+        background-color: #f0f0f0;
+    }
+    .image-slider img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    .slider-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        z-index: 1;
+    }
+    .slider-nav button {
+        background-color: rgba(255, 255, 255, 0.5);
+        border: none;
+        color: #333;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 10px; /* Rounded corners for buttons */
+    }
+    .slider-nav button:hover {
+        background-color: transparent;
+    }
+    .specifications {
+        width: 50%;
+        height: 450px;
+        padding: 20px;
+        border: 2px outset;
+        border-radius: 20px; /* Rounded corners for squircle shape */
+        background-color: transparent; /* Set background to transparent */
+    }
+    .specifications h1 {
+        margin-top: 0px;
+        font-size: 24px;
+        color: #333;
+        margin-left: 10px;
+    }
+    .spec-list {
+        list-style-type: none;
+        padding: 15px;
+    }
+    .spec-list li {
+        margin-bottom: 10px;
+    }
+    .spec-list li strong {
+        font-weight: bold;
+    }
+    @media (max-width: 768px) {
+        .big-box {
+            flex-direction: column;
+            max-width: 100%;
+        }
+        .image-slider {
+            width: 100%;
+            max-height: 300px;
+            margin-bottom: 20px;
+        }
+        .slider-nav {
+            display: none;
+        }
+        .specifications {
+            width: 100%;
+        }
+    }
+    .buy-button-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1;
+  }
+
+  .buy-button1 {
+    background-color: hsl(211, 84%, 78%);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .buy-button1:hover {
+    background-color: hsl(211, 100%, 14%);
+  }
+
+  .buy-button2 {
+    background-color: hsl(211, 84%, 78%);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .buy-button2:hover {
+    background-color: hsl(211, 100%, 14%);
+  }
+
+</style>
+</head>
+<body>
+    <div class="details" id="details1">
+        <div class="top-buttons-container">
+            <button class="top-button" onclick="showSlider(1)">Iphone 15 Pro Max</button>
+            <button class="top-button" onclick="showSlider(2)">Iphone 15 Pro</button>
+        </div>
+        <div class="image-slider" id="slider1">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone15promax-digitalmat-gallery-1-202309_GEO_EMEA?wid=728&hei=666&fmt=png-alpha&.v=1710800169674" alt="Image 1">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone15promax-digitalmat-gallery-3-202309?wid=728&hei=666&fmt=png-alpha&.v=1693081545199" alt="Image 2">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone15promax-digitalmat-gallery-2-202309?wid=728&hei=666&fmt=png-alpha&.v=1693081545196" alt="Image 3">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone15promax-digitalmat-gallery-4-202309?wid=728&hei=666&fmt=png-alpha&.v=1710800172690" alt="Image 4">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone15promax-digitalmat-gallery-5-202309?wid=728&hei=666&fmt=png-alpha&.v=1710800172513" alt="Image 5">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone15promax-digitalmat-gallery-6-202309?wid=728&hei=666&fmt=png-alpha&.v=1710800172584" alt="Image 6">
+          <!-- Add more images here -->
+          <div class="slider-nav">
+            <button onclick="prevSlide(1)">&#10094; Prev</button>
+            <button onclick="nextSlide(1)">Next &#10095;</button>
+          </div>
+        </div>
+        <div class="image-slider" id="slider2">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone15pro-digitalmat-gallery-1-202309_GEO_EMEA?wid=728&hei=666&fmt=png-alpha&.v=1693346851387" alt="Image 1">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone15pro-digitalmat-gallery-2-202309?wid=728&hei=666&fmt=png-alpha&.v=1693081541434" alt="Image 2">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone15pro-digitalmat-gallery-3-202309?wid=728&hei=666&fmt=png-alpha&.v=1693081542150" alt="Image 3">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone15pro-digitalmat-gallery-4-202309?wid=728&hei=666&fmt=jpeg&qlt=90&.v=1693081542280" alt="Image 4">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone15pro-digitalmat-gallery-5-202309?wid=728&hei=666&fmt=png-alpha&.v=1693081541860" alt="Image 5">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone15pro-digitalmat-gallery-6-202309?wid=728&hei=666&fmt=png-alpha&.v=1699461408004" alt="Image 6">
+          <div class="slider-nav">
+            <button onclick="prevSlide(2)">&#10094; Prev</button>
+            <button onclick="nextSlide(2)">Next &#10095;</button>
+          </div>
+        </div>
+        <div class="specifications" id="specs1">
+          <h1>Iphone 15 Pro Max</h1>
+          <ul class="spec-list">
+            <li><strong>17.0 cm (6.7") Super Retina XDR display footnote ¹ featuring ProMotion, Always-On and Dynamic Island</strong></li>
+            <li><strong>Strong and light titanium design with Action button — a fast track to your favourite feature
+            </strong></li>
+            <li><strong>48MP Main camera for super-high-resolution photos and 5x Telephoto camera, the longest optical zoom in iPhone ever
+            </strong></li>
+            <li><strong>A17 Pro chip delivers a massive leap in graphics performance, transforming mobile gaming</strong></li>
+            <li><strong>USB-C connector with USB 3 for up to 20x faster transfer speeds footnote ² and new pro workflows</strong></li>
+            <!-- Add more specifications here -->
+          </ul>
+          <div class="buy-button-container">
+            <button class="buy-button1">Buy Now</button>
+          </div>
+        </div>
+        <div class="specifications" id="specs2">
+          <h1>Iphone 15 Pro</h1>
+          <ul class="spec-list">
+            <li><strong>15.5 cm (6.1") Super Retina XDR display footnote ¹ featuring ProMotion, Always-On and Dynamic Island</strong></li>
+            <li><strong>Strong and light titanium design with Action button — a fast track to your favourite feature</strong></li>
+            <li><strong>48MP Main camera for super-high-resolution photos and 3x Telephoto camera</strong></li>
+            <li><strong>A17 Pro chip delivers a massive leap in graphics performance, transforming mobile gaming</strong></li>
+            <li><strong>USB-C connector with USB 3 for up to 20x faster transfer speeds footnote ² and new pro workflows</strong></li>
+            <!-- Add more specifications here -->
+          </ul>
+          <div class="buy-button-container">
+            <button class="buy-button2">Buy Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="details" id="details2">
+        <div class="top-buttons-container">
+            <button class="top-button" onclick="showSlider(1)">Iphone 14 Pro Max</button>
+            <button class="top-button" onclick="showSlider(2)">Iphone 14 Pro</button>
+        </div>
+        <div class="image-slider" id="slider1">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone15promax-digitalmat-gallery-1-202309_GEO_EMEA?wid=728&hei=666&fmt=png-alpha&.v=1710800169674" alt="Image 1">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone15promax-digitalmat-gallery-3-202309?wid=728&hei=666&fmt=png-alpha&.v=1693081545199" alt="Image 2">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone15promax-digitalmat-gallery-2-202309?wid=728&hei=666&fmt=png-alpha&.v=1693081545196" alt="Image 3">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone15promax-digitalmat-gallery-4-202309?wid=728&hei=666&fmt=png-alpha&.v=1710800172690" alt="Image 4">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone15promax-digitalmat-gallery-5-202309?wid=728&hei=666&fmt=png-alpha&.v=1710800172513" alt="Image 5">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone15promax-digitalmat-gallery-6-202309?wid=728&hei=666&fmt=png-alpha&.v=1710800172584" alt="Image 6">
+          <!-- Add more images here -->
+          <div class="slider-nav">
+            <button onclick="prevSlide(1)">&#10094; Prev</button>
+            <button onclick="nextSlide(1)">Next &#10095;</button>
+          </div>
+        </div>
+        <div class="image-slider" id="slider2">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone15pro-digitalmat-gallery-1-202309_GEO_EMEA?wid=728&hei=666&fmt=png-alpha&.v=1693346851387" alt="Image 1">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone15pro-digitalmat-gallery-2-202309?wid=728&hei=666&fmt=png-alpha&.v=1693081541434" alt="Image 2">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone15pro-digitalmat-gallery-3-202309?wid=728&hei=666&fmt=png-alpha&.v=1693081542150" alt="Image 3">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone15pro-digitalmat-gallery-4-202309?wid=728&hei=666&fmt=jpeg&qlt=90&.v=1693081542280" alt="Image 4">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone15pro-digitalmat-gallery-5-202309?wid=728&hei=666&fmt=png-alpha&.v=1693081541860" alt="Image 5">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone15pro-digitalmat-gallery-6-202309?wid=728&hei=666&fmt=png-alpha&.v=1699461408004" alt="Image 6">
+          <div class="slider-nav">
+            <button onclick="prevSlide(2)">&#10094; Prev</button>
+            <button onclick="nextSlide(2)">Next &#10095;</button>
+          </div>
+        </div>
+        <div class="specifications" id="specs1">
+          <h1>Iphone 15 Pro Max</h1>
+          <ul class="spec-list">
+            <li><strong>17.0 cm (6.7") Super Retina XDR display footnote ¹ featuring ProMotion, Always-On and Dynamic Island</strong></li>
+            <li><strong>Strong and light titanium design with Action button — a fast track to your favourite feature
+            </strong></li>
+            <li><strong>48MP Main camera for super-high-resolution photos and 5x Telephoto camera, the longest optical zoom in iPhone ever
+            </strong></li>
+            <li><strong>A17 Pro chip delivers a massive leap in graphics performance, transforming mobile gaming</strong></li>
+            <li><strong>USB-C connector with USB 3 for up to 20x faster transfer speeds footnote ² and new pro workflows</strong></li>
+            <!-- Add more specifications here -->
+          </ul>
+          <div class="buy-button-container">
+            <button class="buy-button1">Buy Now</button>
+          </div>
+        </div>
+        <div class="specifications" id="specs2">
+          <h1>Iphone 15 Pro</h1>
+          <ul class="spec-list">
+            <li><strong>15.5 cm (6.1") Super Retina XDR display footnote ¹ featuring ProMotion, Always-On and Dynamic Island</strong></li>
+            <li><strong>Strong and light titanium design with Action button — a fast track to your favourite feature</strong></li>
+            <li><strong>48MP Main camera for super-high-resolution photos and 3x Telephoto camera</strong></li>
+            <li><strong>A17 Pro chip delivers a massive leap in graphics performance, transforming mobile gaming</strong></li>
+            <li><strong>USB-C connector with USB 3 for up to 20x faster transfer speeds footnote ² and new pro workflows</strong></li>
+            <!-- Add more specifications here -->
+          </ul>
+          <div class="buy-button-container">
+            <button class="buy-button2">Buy Now</button>
+          </div>
+        </div>
+      </div>
+      <div class="cylindrical-box">
+        <button class="toggle-button" onclick="toggleDetails(1)">Iphone 15 Pro</button>
+        <button class="toggle-button" onclick="toggleDetails(1)">Iphone 15</button>
+        <button class="toggle-button">Iphone 14 Pro</button>
+        <button class="toggle-button">Iphone 14</button>
+        <button class="toggle-button">Iphone 13</button>
+      </div>
+      
+      <script>
+        function toggleDetails(id) {
+            // Hide all details containers
+            const detailsContainers = document.querySelectorAll('.details-container');
+            detailsContainers.forEach(container => container.classList.remove('active'));
+
+            // Show the clicked details container
+            const clickedContainer = document.getElementById(`details${id}`);
+            clickedContainer.classList.add('active');
+        }
+        
+        let slideIndex1 = 0;
+        let slideIndex2 = 0;
+        const slides1 = document.querySelectorAll('#slider1 img');
+        const slides2 = document.querySelectorAll('#slider2 img');
+      
+        function showSlide1(n) {
+          slides1.forEach(slide => slide.style.display = 'none');
+          if (n >= slides1.length) {
+            slideIndex1 = 0;
+          } else if (n < 0) {
+            slideIndex1 = slides1.length - 1;
+          }
+          slides1[slideIndex1].style.display = 'block';
+        }
+      
+        function showSlide2(n) {
+          slides2.forEach(slide => slide.style.display = 'none');
+          if (n >= slides2.length) {
+            slideIndex2 = 0;
+          } else if (n < 0) {
+            slideIndex2 = slides2.length - 1;
+          }
+          slides2[slideIndex2].style.display = 'block';
+        }
+      
+        function nextSlide(slider) {
+          if (slider === 1) {
+            showSlide1(++slideIndex1);
+          } else if (slider === 2) {
+            showSlide2(++slideIndex2);
+          }
+        }
+      
+        function prevSlide(slider) {
+          if (slider === 1) {
+            showSlide1(--slideIndex1);
+          } else if (slider === 2) {
+            showSlide2(--slideIndex2);
+          }
+        }
+      
+        function showSlider(slider) {
+          if (slider === 1) {
+            document.getElementById('slider1').style.display = 'block';
+            document.getElementById('slider2').style.display = 'none'; // Hide slider2
+            document.getElementById('specs1').style.display = 'block';
+            document.getElementById('specs2').style.display = 'none'; // Hide specs2
+            showSlide1(slideIndex1);
+          } else if (slider === 2) {
+            document.getElementById('slider1').style.display = 'none'; // Hide slider1
+            document.getElementById('slider2').style.display = 'block';
+            document.getElementById('specs1').style.display = 'none'; // Hide specs1
+            document.getElementById('specs2').style.display = 'block';
+            showSlide2(slideIndex2);
+          }
+        }
+      
+        showSlider(1); // Show slider1 by default
+      </script>
+      
+</body>
+</html>
+

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SamSung Details</title>
+<style>
+    body {
+        background-color: #512da8; /* Updated color */
+        background: linear-gradient(to right, #c9d6ff, #e2e2e2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .details {
+        margin-top: 90px;
+        width: 1000px;
+        height: 750px;
+        background-color: rgba(81, 45, 168, 0.5);
+        border-radius: 20px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+        position: relative;
+        display: flex; /* Added display flex */
+        justify-content: center; /* Center content horizontally */
+        align-items: center; /* Center content vertically */
+        margin-bottom: 90px;
+    }
+
+    .top-buttons-container {
+        position: absolute;
+        top: 50px;
+        left: 40px;
+        display: flex;
+        z-index: 1;
+    }
+    .top-button {
+        background-color: #c9d6ff;
+        border: solid 2px #c9d6ff;
+        color: #512da8;
+        padding: 10px 20px; /* Adjust padding as needed */
+        cursor: pointer;
+        border-radius: 25px; /* Rounded corners for cylindrical shape */
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .top-button:hover {
+        background-color: #512da8;
+        color: #c9d6ff;
+    }
+
+    .image-slider {
+        width: 50%; /* Adjust width as needed */
+        overflow: hidden;
+        position: relative;
+        border: 2px outset;
+        border-radius: 20px;
+        background-color: #f0f0f0;
+    }
+    .image-slider img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    .slider-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        z-index: 1;
+    }
+    .slider-nav button {
+        background-color: rgba(255, 255, 255, 0.5);
+        border: none;
+        color: #333;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 10px; /* Rounded corners for buttons */
+    }
+    .slider-nav button:hover {
+        background-color: transparent;
+    }
+    .specifications {
+        color: #c9d6ff;
+        width: 50%;
+        height: 450px;
+        padding: 20px;
+        border: 2px outset;
+        border-radius: 20px; /* Rounded corners for squircle shape */
+        background-color: transparent; /* Set background to transparent */
+    }
+    .specifications h1 {
+        margin-top: 0px;
+        font-size: 24px;
+        color: #512da8;
+        margin-left: 10px;
+    }
+    .spec-list {
+        list-style-type: none;
+        padding: 15px;
+    }
+    .spec-list li {
+        margin-bottom: 10px;
+    }
+    .spec-list li strong {
+        font-weight: bold;
+    }
+    .buy-button-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1;
+  }
+
+  .buy-button1 {
+    background-color: #c9d6ff;
+    color: #512da8;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .buy-button1:hover {
+    transform: scale(1.1);
+  }
+
+  .buy-button2 {
+    background-color: #c9d6ff;
+    color: #512da8;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .buy-button2:hover {
+    transform: scale(1.1);
+  }
+
+  .buy-button3 {
+    background-color: #c9d6ff;
+    color: #512da8;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .buy-button3:hover {
+    transform: scale(1.1); 
+  }
+
+  .buy-button4 {
+    background-color: #c9d6ff;
+    color: #512da8;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .buy-button4:hover {
+    transform: scale(1.1); 
+  }
+
+</style>
+</head>
+<body>
+    <div class="details" id="box1">
+        <div class="top-buttons-container">
+            <button class="top-button" onclick="showSlider(1)">Galaxy S24 Ultra</button>
+            <button class="top-button" onclick="showSlider(2)">Galaxy S24 Plus</button>
+            <button class="top-button" onclick="showSlider(3)">Galaxy Z Flip 5</button>
+            <button class="top-button" onclick="showSlider(4)">Galaxy Z Fold 5</button>
+        </div>
+        <div class="image-slider" id="slider1">
+          <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/3/p/e/-original-imagx9eg3nze8ctg.jpeg?q=70&crop=false" alt="Image 1">
+          <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/t/q/k/-original-imagx9pff4gxepfy.jpeg?q=70&crop=false" alt="Image 2">
+          <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/r/f/y/-original-imagx9pf7dd5ny7n.jpeg?q=70&crop=false" alt="Image 3">
+          <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/g/o/m/-original-imagx9pjthgb3jeh.jpeg?q=70&crop=false" alt="Image 4">
+          <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/p/4/t/-original-imagx9egfn7zbvtq.jpeg?q=70&crop=false" alt="Image 5">
+          <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/g/7/t/-original-imagx9egtftexhux.jpeg?q=70&crop=false" alt="Image 6">
+          <div class="slider-nav">
+            <button onclick="prevSlide(1)">&#10094; Prev</button>
+            <button onclick="nextSlide(1)">Next &#10095;</button>
+          </div>
+        </div>
+        <div class="image-slider" id="slider2">
+          <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/z/i/m/-original-imagx9egacbrxhsf.jpeg?q=70&crop=false" alt="Image 1">
+          <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/5/r/a/-original-imagx9pqmnyfp6jh.jpeg?q=70&crop=false" alt="Image 2">
+          <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/q/d/h/-original-imagx9phbscbg3x5.jpeg?q=70&crop=false" alt="Image 3">
+          <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/k/k/h/-original-imagx9pqxxx3utve.jpeg?q=70&crop=false" alt="Image 4">
+          <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/y/i/1/-original-imagx9eghzna98gy.jpeg?q=70&crop=false" alt="Image 5">
+          <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/c/u/w/-original-imagx9egczd93kdj.jpeg?q=70&crop=false" alt="Image 6">
+          <div class="slider-nav">
+            <button onclick="prevSlide(2)">&#10094; Prev</button>
+            <button onclick="nextSlide(2)">Next &#10095;</button>
+          </div>
+        </div>
+        <div class="image-slider" id="slider3">
+          <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/2/j/d/-original-imagztmgzp8ewjhn.jpeg?q=70&crop=false" alt="Image 1">
+          <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/y/a/n/galaxy-flip5-sm-f731bliains-samsung-original-imagru5pscnusd6r.jpeg?q=70&crop=false" alt="Image 2">
+          <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/8/7/f/galaxy-flip5-sm-f731bliains-samsung-original-imagru5pwdzrsgqw.jpeg?q=70&crop=false" alt="Image 3">
+          <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/t/o/a/-original-imagztm78eqgsgzg.jpeg?q=70&crop=false" alt="Image 4">
+          <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/m/2/m/galaxy-flip5-sm-f731bliains-samsung-original-imagru5ppffxcaaz.jpeg?q=70&crop=false" alt="Image 5">
+          <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/a/p/4/galaxy-flip5-sm-f731bliains-samsung-original-imagru5pwkz8z9zj.jpeg?q=70&crop=false" alt="Image 6">
+          <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/3/q/u/galaxy-flip5-sm-f731bliains-samsung-original-imagru5pn2h79fhk.jpeg?q=70&crop=false" alt="Image 7">
+          <div class="slider-nav">
+            <button onclick="prevSlide(3)">&#10094; Prev</button>
+            <button onclick="nextSlide(3)">Next &#10095;</button>
+          </div>
+        </div>
+        <div class="image-slider" id="slider4">
+          <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/y/n/j/-original-imagztmgmmshbqga.jpeg?q=70&crop=false" alt="Image 1">
+          <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/l/m/t/galaxy-fold5-sm-f946bzkdins-samsung-original-imagru9ne2bzgk29.jpeg?q=70&crop=false" alt="Image 2">
+          <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/j/b/d/galaxy-fold5-sm-f946bzkdins-samsung-original-imagru9nuhagjfkt.jpeg?q=70&crop=false" alt="Image 3">
+          <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/q/u/g/-original-imagztm7uny6pgfr.jpeg?q=70&crop=false" alt="Image 4">
+          <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/n/5/w/galaxy-fold5-sm-f946bzkdins-samsung-original-imagru9nvrphg3qw.jpeg?q=70&crop=false" alt="Image 5">
+          <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/f/k/f/galaxy-fold5-sm-f946bzkdins-samsung-original-imagru9nhsmr7hvc.jpeg?q=70&crop=false" alt="Image 6">
+          <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/r/h/l/galaxy-fold5-sm-f946bzkdins-samsung-original-imagru9nqejh9bum.jpeg?q=70&crop=false" alt="Image 7">
+          <div class="slider-nav">
+            <button onclick="prevSlide(4)">&#10094; Prev</button>
+            <button onclick="nextSlide(4)">Next &#10095;</button>
+          </div>
+        </div>
+        <div class="specifications" id="specs1">
+          <h1>Galaxy S24 Ultra</h1>
+          <ul class="spec-list">
+            <li><strong>17.0 cm (6.7") Super Retina XDR display footnote ¹ featuring ProMotion, Always-On and Dynamic Island</strong></li>
+            <li><strong>Strong and light titanium design with Action button — a fast track to your favourite feature
+            </strong></li>
+            <li><strong>48MP Main camera for super-high-resolution photos and 5x Telephoto camera, the longest optical zoom in iPhone ever
+            </strong></li>
+            <li><strong>A17 Pro chip delivers a massive leap in graphics performance, transforming mobile gaming</strong></li>
+            <li><strong>USB-C connector with USB 3 for up to 20x faster transfer speeds footnote ² and new pro workflows</strong></li>
+            <!-- Add more specifications here -->
+            </ul>
+          <div class="buy-button-container">
+            <button class="buy-button1">Buy Now</button>
+          </div>
+        </div>
+        <div class="specifications" id="specs2">
+          <h1>Galaxy S24 Plus</h1>
+          <ul class="spec-list">
+            <li><strong>15.5 cm (6.1") Super Retina XDR display footnote ¹ featuring ProMotion, Always-On and Dynamic Island</strong></li>
+            <li><strong>Strong and light titanium design with Action button — a fast track to your favourite feature</strong></li>
+            <li><strong>48MP Main camera for super-high-resolution photos and 3x Telephoto camera</strong></li>
+            <li><strong>A17 Pro chip delivers a massive leap in graphics performance, transforming mobile gaming</strong></li>
+            <li><strong>USB-C connector with USB 3 for up to 20x faster transfer speeds footnote ² and new pro workflows</strong></li>
+            <!-- Add more specifications here -->
+          </ul>
+          <div class="buy-button-container">
+            <button class="buy-button2">Buy Now</button>
+          </div>
+        </div>
+        <div class="specifications" id="specs3">
+          <h1>Galaxy Z Flip 5</h1>
+          <ul>
+            <li><strong>17.0 cm (6.7") durable colour-infused glass and aluminium design footnote ◊ with Ceramic Shield front</strong></li>
+            <li><strong>Dynamic Island bubbles up alerts and Live Activities — so you don’t miss them while you’re doing something else</strong></li>
+            <li><strong>48MP Main camera with 2x Telephoto captures breathtaking detail up close or far away</strong></li>
+            <li><strong>A16 Bionic powers computational photography and smooth gaming performance with great efficiency for all-day battery life</strong></li>
+            <li><strong>Connect and charge with USB-C</strong></li>
+          </ul>
+          <div class="buy-button-container">
+            <button class="buy-button3">Buy Now</button>
+          </div>
+        </div>
+        <div class="specifications" id="specs4">
+          <h1>Galaxy Z Fold 5</h1>
+          <ul>
+            <li><strong>15.5 cm (6.1") durable colour-infused glass and aluminium design footnote ◊ with Ceramic Shield front</strong></li>
+            <li><strong>Dynamic Island bubbles up alerts and Live Activities — so you don’t miss them while you’re doing something else</strong></li>
+            <li><strong>48MP Main camera with 2x Telephoto captures breathtaking detail up close or far away</strong></li>
+            <li><strong>A16 Bionic powers computational photography and smooth gaming performance with great efficiency for all-day battery life</strong></li>
+            <li><strong>Connect and charge with USB-C</strong></li>
+          </ul>
+          <div class="buy-button-container">
+            <button class="buy-button4">Buy Now</button>
+          </div>
+        </div>
+      </div>
+      
+      <script>
+
+        let slideIndex1 = 0;
+        let slideIndex2 = 0;
+        let slideIndex3 = 0;
+        let slideIndex4 = 0;
+
+        const slides1 = document.querySelectorAll('#slider1 img');
+        const slides2 = document.querySelectorAll('#slider2 img');
+        const slides3 = document.querySelectorAll('#slider3 img');
+        const slides4 = document.querySelectorAll('#slider4 img');
+
+        function showSlide1(n) {
+            slides1.forEach(slide => slide.style.display = 'none');
+            if (n >= slides1.length) {
+                slideIndex1 = 0;
+            } else if (n < 0) {
+                slideIndex1 = slides1.length - 1;
+            }
+            slides1[slideIndex1].style.display = 'block';
+        }
+
+        function showSlide2(n) {
+            slides2.forEach(slide => slide.style.display = 'none');
+            if (n >= slides2.length) {
+                slideIndex2 = 0;
+            } else if (n < 0) {
+                slideIndex2 = slides2.length - 1;
+            }
+            slides2[slideIndex2].style.display = 'block';
+        }
+
+        function showSlide3(n) {
+            slides3.forEach(slide => slide.style.display = 'none');
+            if (n >= slides3.length) {
+                slideIndex3 = 0;
+            } else if (n < 0) {
+                slideIndex3 = slides3.length - 1;
+            }
+            slides3[slideIndex3].style.display = 'block';
+        }
+
+        function showSlide4(n) {
+            slides4.forEach(slide => slide.style.display = 'none');
+            if (n >= slides4.length) {
+                slideIndex4 = 0;
+            } else if (n < 0) {
+                slideIndex4 = slides4.length - 1;
+            }
+            slides4[slideIndex4].style.display = 'block';
+        }
+
+        function nextSlide(slider) {
+            if (slider === 1) {
+                showSlide1(++slideIndex1);
+            } else if (slider === 2) {
+                showSlide2(++slideIndex2);
+            } else if (slider === 3) {
+                showSlide3(++slideIndex3);
+            } else if (slider === 4) {
+                showSlide4(++slideIndex4);
+            }
+        }
+
+        function prevSlide(slider) {
+            if (slider === 1) {
+                showSlide1(--slideIndex1);
+            } else if (slider === 2) {
+                showSlide2(--slideIndex2);
+            } else if (slider === 3) {
+                showSlide3(--slideIndex3);
+            } else if (slider === 4) {
+                showSlide4(--slideIndex4);
+            }
+        }
+
+        function showSlider(slider) {
+            if (slider === 1) {
+                document.getElementById('slider1').style.display = 'block';
+                document.getElementById('slider2').style.display = 'none';
+                document.getElementById('slider3').style.display = 'none';
+                document.getElementById('slider4').style.display = 'none';
+                document.getElementById('specs1').style.display = 'block';
+                document.getElementById('specs2').style.display = 'none';
+                document.getElementById('specs3').style.display = 'none';
+                document.getElementById('specs4').style.display = 'none';
+                showSlide1(slideIndex1);
+            } else if (slider === 2) {
+                document.getElementById('slider1').style.display = 'none';
+                document.getElementById('slider2').style.display = 'block';
+                document.getElementById('slider3').style.display = 'none';
+                document.getElementById('slider4').style.display = 'none';
+                document.getElementById('specs1').style.display = 'none';
+                document.getElementById('specs2').style.display = 'block';
+                document.getElementById('specs3').style.display = 'none';
+                document.getElementById('specs4').style.display = 'none';
+                showSlide2(slideIndex2);
+            } else if (slider === 3) {
+                document.getElementById('slider1').style.display = 'none';
+                document.getElementById('slider2').style.display = 'none';
+                document.getElementById('slider3').style.display = 'block';
+                document.getElementById('slider4').style.display = 'none';
+                document.getElementById('specs1').style.display = 'none';
+                document.getElementById('specs2').style.display = 'none';
+                document.getElementById('specs3').style.display = 'block';
+                document.getElementById('specs4').style.display = 'none';
+                showSlide3(slideIndex3);
+            } else if (slider === 4) {
+                document.getElementById('slider1').style.display = 'none';
+                document.getElementById('slider2').style.display = 'none';
+                document.getElementById('slider3').style.display = 'none';
+                document.getElementById('slider4').style.display = 'block';
+                document.getElementById('specs1').style.display = 'none';
+                document.getElementById('specs2').style.display = 'none';
+                document.getElementById('specs3').style.display = 'none';
+                document.getElementById('specs4').style.display = 'block';
+                showSlide4(slideIndex4);
+            }
+        }
+
+        showSlider(1); // Show slider1 by default
+    </script>
+      
+      
+</body>
+</html>

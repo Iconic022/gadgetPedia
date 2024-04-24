@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExploreGadgets</title>
+    <style>
+        /* Reset default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #512da8; /* Updated color */
+            background: linear-gradient(to right, #c9d6ff, #e2e2e2);
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
+        }
+
+        /* Control center container styles */
+        .box-container1,
+        .box-container2,
+        .box-container3 {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .box1,
+        .box2,
+        .box3,
+        .box4,
+        .box5,
+        .box6,
+        .box7,
+        .box8,
+        .box9,
+        .box10,
+        .box11,
+        .box12 {
+            background-color: #c9d6ff;
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* Shadow effect */
+            height: 300px; /* Set the height of the box */
+            width: 300px;
+            flex: 1; /* Equal width for all boxes */
+            margin-right: 25px;
+            overflow: hidden; /* Ensure content stays within box boundaries */
+            position: relative; /* Position for hover effect */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition for hover effect */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box2 .box-text,
+        .box3 .box-text,
+        .box4 .box-text,
+        .box5 .box-text,
+        .box6 .box-text,
+        .box7 .box-text,
+        .box8 .box-text,
+        .box9 .box-text,
+        .box10 .box-text,
+        .box11 .box-text,
+        .box12 .box-text {
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bold; /* Bold text */
+            color: #333; /* Text color */
+            opacity: 1; /* Initially visible */
+            transition: opacity 0.3s ease-in-out; /* Smooth transition for opacity */
+            position: absolute; /* Position for text */
+            top: 50%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Center text */
+            z-index: 1; /* Place text on top */
+        }
+
+        .box2 img,
+        .box3 img,
+        .box4 img,
+        .box5 img,
+        .box6 img,
+        .box7 img,
+        .box8 img,
+        .box9 img,
+        .box10 img,
+        .box11 img,
+        .box12 img {
+            width: 75%;
+            height: auto;
+            object-fit: cover; /* Cover the entire box without distortion */
+            opacity: 0; /* Initially hidden */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition for opacity and transform */
+            position: absolute; /* Position for image */
+            top: 50%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%) scale(0.8); /* Center image and scale it down initially */
+        }
+
+        /* Hover effect */
+        .box2:hover,
+        .box3:hover,
+        .box4:hover,
+        .box5:hover,
+        .box6:hover,
+        .box7:hover,
+        .box8:hover,
+        .box9:hover,
+        .box10:hover,
+        .box11:hover,
+        .box12:hover {
+            transform: scale(0.95); /* Scale up on hover */
+            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.8); /* Increase shadow on hover */
+        }
+
+    
+        .box2:hover img,
+        .box3:hover img,
+        .box4:hover img,
+        .box5:hover img,
+        .box6:hover img,
+        .box7:hover img,
+        .box8:hover img,
+        .box9:hover img {
+            opacity: 1; /* Show image on hover */
+            transform: translate(-50%, -50%) scale(0.8); /* Center image and scale it to full size */
+        }
+
+        /* Hover effect for text */
+        .box2:hover .box-text,
+        .box3:hover .box-text,
+        .box4:hover .box-text,
+        .box5:hover .box-text,
+        .box6:hover .box-text,
+        .box7:hover .box-text,
+        .box8:hover .box-text,
+        .box9:hover .box-text {
+            opacity: 0; /* Hide text on hover */
+        }
+
+        /* Image styles */
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .small-boxes-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .small-box {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            width: 200px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px;
+        }
+
+        .small-box:hover {
+            transform: scale(0.9); /* Scale up on hover */
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.8); /* Increase shadow on hover */
+        }
+        .box1 iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center; 
+            appearance: none;
+            -webkit-appearance: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="box-container1">
+        <div class="box1">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/9F3YcPZ40Vg?autoplay=1&loop=1&playlist=9F3YcPZ40Vg&mute=1" controls="0" frameborder="0"></iframe>
+        </div>
+    </div>
+    
+
+    <div class="box-container2">
+        <div class="box2" onclick="handleBoxClick(event)">
+            <div class="box-text">APPLE</div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/833px-Apple_logo_black.svg.png" alt="Image 1">
+        </div>
+        <div class="box3">
+            <div class="box-text">SAMSUNG</div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Samsung_Logo.svg/2560px-Samsung_Logo.svg.png" alt="Image 2">
+        </div>
+        <div class="box4">
+            <div class="box-text">DELL</div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Dell_Logo.svg/600px-Dell_Logo.svg.png?20160807135325" alt="Image 3">
+        </div>
+        <div class="box5">
+            <div class="box-text">HP</div>
+            <img src="https://w7.pngwing.com/pngs/151/790/png-transparent-hewlett-packard-hp-elitebook-dell-laptop-logo-hewlett-packard-blue-text-trademark-thumbnail.png" alt="Image 4">
+        </div>
+    </div>
+    
+    <div class="box-container3">
+        <div class="box6">
+            <div class="box-text">XIAOMI</div>
+            <img src="https://1000logos.net/wp-content/uploads/2021/08/Xiaomi-logo.png" alt="Image 9">
+        </div>
+        <div class="box7">
+            <div class="box-text">REALME</div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Realme_logo.svg/2560px-Realme_logo.svg.png" alt="Image 10">
+        </div>
+        <div class="box8">
+            <div class="box-text">HONOR</div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/LOGO_Honor.svg" alt="Image 11">
+        </div>
+        <div class="box9">
+            <div class="box-text">LENOVO</div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Motorola_logo.svg/2560px-Motorola_logo.svg.png" alt="Image 12">
+        </div>
+    </div>
+
+    <script>
+        function handleBoxClick(event) {
+        const boxId = event.currentTarget.classList[0].split('box')[1];
+        let fileName;
+    switch (boxId) {
+        case '2':
+            fileName = 'AppleLaptops';
+            break;
+        case '3':
+            fileName = 'SamsungLaptops';
+            break;
+        case '4':
+            fileName = 'OneplusDetails';
+            break;
+        case '5':
+            fileName = 'GooglepixelDetails';
+            break;    
+        // Add cases for other boxes as needed
+        default:
+            fileName = 'DefaultDetails.html';
+        }
+        window.location.href = fileName;
+    }
+
+    </script>
+    </script>
+</body>
+</html>

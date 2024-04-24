@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExploreGadgets</title>
+    <style>
+        /* Reset default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #c9d6ff;
+            background-image: url('background-image.jpg'); /* Replace with actual background image URL */
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
+        }
+
+        /* Control center container styles */
+        .Big-box {
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* Shadow effect */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px; /* Set the height of the box */
+            margin-bottom: 10px;
+            overflow: hidden; /* Prevent video overflow */
+        }
+
+        .box-container1 {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .box1 {
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* Shadow effect */
+            height: 300px; /* Set the height of the box */
+            width: 70%;
+            margin-right: 10px;
+            overflow: hidden; /* Ensure image stays within box boundaries */
+            margin-bottom: 10px;
+        }
+        .box2 {
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* Shadow effect */
+            height: 300px; /* Set the height of the box */
+            width: 30%; /* Adjust width as needed */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* Ensure image stays within box boundaries */
+            margin-bottom: 10px;
+        }
+
+        .box-container2 {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .box3 {
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* Shadow effect */
+            height: 700px; /* Set the height of the box */
+            width: 25%;
+            margin-right: 10px;
+            overflow: hidden; /* Ensure image stays within box boundaries */
+        }
+        .box4 {
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* Shadow effect */
+            height: 300px; /* Set the height of the box */
+            width: 75%; /* Adjust width as needed */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* Ensure image stays within box boundaries */
+        }
+        video {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px; /* Rounded corners for the video */
+            object-fit: cover; /* Cover the entire box without distortion */
+            object-position: center; /* Center the video within the box */
+            /* Hide video controls */
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        /* Image styles */
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px; /* Rounded corners for the image */
+        }
+    </style>
+</head>
+<body>
+    <div class="Big-box">
+        <!-- Video box -->
+        <video autoplay loop muted controlsList="nodownload" width="100%" height="100%">
+            <source src="https://www.apple.com/105/media/us/mac/family/2024/60fc0159-4236-4a03-8534-f5ba07e538c5/anim/welcome/xlarge_2x.mp4" type="video/mp4">
+            <!-- Include other video sources if needed (e.g., WebM, Ogg) -->
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="box-container1">
+        <div class="box1">
+            <!-- Video box -->
+            <video autoplay loop muted controlsList="nodownload" width="100%" height="100%">
+                <source src="https://images.samsung.com/is/content/samsung/assets/in/HOME_S24_Series_Main-KV_1440x640_pc.webm" type="video/mp4">
+                <!-- Include other video sources if needed (e.g., WebM, Ogg) -->
+            </video>
+        </div>
+        <div class="box2">
+            <!-- Image box -->
+            <img src="https://www.oneplus.in/content/dam/oasis/page/euler/images-pack-941_61955_1011_755-1.jpg.avif">
+        </div>
+    </div>
+    <div class="box-container2">
+        <div class="box3">
+            <img src="https://www.oneplus.in/content/dam/oasis/page/almond/en/assets/images-pack-2193_4125-1.jpg.avif">
+        </div>
+        <div class="box4">
+            <video autoplay loop muted controlsList="nodownload" width="100%" height="100%">
+                <source src="https://images.samsung.com/is/content/samsung/assets/in/2307/pcd/PCD_B5Q5_Main-KV_1440x640_pc_default.mp4" type="video/mp4">
+                <!-- Include other video sources if needed (e.g., WebM, Ogg) -->
+            </video>
+        </div>
+    </div>
+</body>
+</html>

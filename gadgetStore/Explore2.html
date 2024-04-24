@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExploreGadgets</title>
+    <style>
+        /* Reset default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #c9d6ff;
+            background-image: url('background-image.jpg'); /* Replace with actual background image URL */
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
+        }
+
+        /* Control center container styles */
+        .Big-box {
+            background-color: #e2e6ff; /* Semi-transparent white background */
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* Shadow effect */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px; /* Set the height of the box */
+            margin-bottom: 20px;
+            overflow: hidden; /* Prevent video overflow */
+        }
+
+        .Big-box h1 {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 75px; 
+            color: #512da8; 
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .box-container1 {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .box1 {
+            background-color: #e2e6ff; /* Semi-transparent white background */
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* Shadow effect */
+            height: 300px; /* Set the height of the box */
+            width: 70%;
+            margin-right: 10px;
+            overflow: hidden; /* Ensure image stays within box boundaries */
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .box2 {
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* Shadow effect */
+            height: 300px; /* Set the height of the box */
+            width: 30%; /* Adjust width as needed */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* Ensure image stays within box boundaries */
+            margin-bottom: 20px;
+        }
+
+        .box-container2 {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .box3 {
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* Shadow effect */
+            height: 300px; /* Set the height of the box */
+            width: 30%;
+            margin-right: 10px;
+            overflow: hidden; 
+        }
+        .box4 {
+            background-color: #e2e6ff; 
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); 
+            height: 300px; 
+            width: 70%; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden; 
+            margin-bottom: 20px;
+        }
+
+        .box-container3 {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .box5 {
+            background-color: #e2e6ff; /* Semi-transparent white background */
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* Shadow effect */
+            height: 300px; /* Set the height of the box */
+            width: 70%;
+            margin-right: 10px;
+            overflow: hidden; /* Ensure image stays within box boundaries */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .box6 {
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* Shadow effect */
+            height: 300px; /* Set the height of the box */
+            width: 30%; /* Adjust width as needed */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* Ensure image stays within box boundaries */
+            margin-bottom: 20px;
+        }
+
+        .box-container4 {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .box8 {
+            background-color: #e2e6ff; 
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); 
+            height: 300px; 
+            width: 70%;
+            overflow: hidden; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .box7 {
+            background-color: rgba(255, 255, 255, 0.9); 
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); 
+            height: 300px; 
+            width: 30%; 
+            display: flex;
+            margin-right: 10px;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; 
+            margin-bottom: 20px;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            object-fit: cover; 
+            object-position: center;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px; 
+        }
+        .box1 h1,
+        .box4 h1,
+        .box5 h1,
+        .box8 h1 {
+            margin-bottom: 10px;
+            margin-left: 5px;
+        }
+        .box1 p,
+        .box4 p,
+        .box5 p,
+        .box8 p {
+           margin-top: 10px;
+           margin-left: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="Big-box">
+        <!-- Video box -->
+        <h1>gadgetNews</h1>
+    </div>
+    <div class="box-container1">
+        <div class="box1">
+            <h1>Microsoft Phi-3 Launched as Company's Smallest Open-Source AI Model to Date</h1>
+            <p>
+            Microsoft on Tuesday released Phi-3, its smallest language artificial intelligence (AI) model to date. Smaller AI models are significant, because they have the potential to be run on smartphones. The latest AI model is the successor to Phi-2, which was released in December 2023, and comes with higher training database and larger parameters. The increased parameters help the AI model understand and respond to more complex questions compared to its predecessor. It is also claimed to be on par with models trained on more than 10 times the number of parameters used for Phi-3.
+
+            A pre-print paper detailing the small language model (SLM) has been published on arXiv. However, as  arXiv does not conduct peer reviews, the validity of the claims is yet to be ascertained. AI enthusiasts can test out the AI model through Azure and Ollama. A Hugging Face catalogue for the Phi-3-mini has also been created but the weights are yet to be released.
+            </p>
+        </div>
+        <div class="box2">
+            <img src="https://i.gadgets360cdn.com/large/microsoft_logo_1713881517674.jpg?downsize=950:*">
+        </div>
+    </div>
+    <div class="box-container2">
+        <div class="box3">
+            <img src="https://i.ytimg.com/vi/hgmgsXGHQl8/maxresdefault.jpg">
+        </div>
+        <div class="box4">
+            <h1>Samsung Galaxy Ring Model Numbers Reveal</h1>
+            <p>
+            Samsung Galaxy Ring is expected to arrive in global markets in the coming months, and details of the next-generation wearable have been leaking ever since the company first teased it in January. A new report reveals the model numbers of the wearable device, that suggest it will be available in eight sizes. Samsung is yet to reveal detailed specifications of the Galaxy Ring, which is expected to offer health and sleep monitoring features, and run for up to nine days on a single charge.
+
+            A Galaxy Club report (in Dutch) states that there are only eight confirmed variants of the Galaxy Ring. These are SM-Q500, SM-Q501, SM-Q502, SM-Q505, SM-Q506, SM-Q507, SM-Q508, and SM-Q509. Two model numbers appear to be missing, and it is currently unclear whether these represent additional sizes, or whether Samsung will introduce a ninth variant, like it previously announced.
+            </p>
+        </div>
+    </div>
+    <div class="box-container3">
+        <div class="box5">
+            <h1>Lenovo IdeaPad Pro 5i Refreshed With Intel Core Ultra 9 Processor</h1>
+            <p>
+                Lenovo refreshed its IdeaPad Pro 5i laptop with the latest AI-focussed Intel Core Ultra 9 processors in India on Tuesday. The creator-focussed laptop features a 14-inch 2.8K OLED display and claims up to 1.5 hours of battery life on a single charge. The Lenovo IdeaPad Pro 5i is built to military-grade standards and comes in an Arctic Grey colourway. Lenovo's latest laptop also offers users full customisation options to build above the base model configuration according to their needs.
+                Lenovo IdeaPad Pro 5i price, availability
+                Pricing for the newest Intel Core Ultra-powered laptop in India starts at Rs. 1,09,990. The Lenovo IdeaPad Pro 5i comes in a single Arctic Grey colour option and is available to buy on the Lenovo website, the company's exclusive stores, e-commerce websites like Amazon and Flipkart, and other offline retailers starting April 23.
+
+                Lenovo is also providing a limited time offer that lets customers avail a five percent cashback of up to Rs. 10,000 on all custom orders.
+            </p>
+        </div>
+        <div class="box6">
+            <img src="https://i.gadgets360cdn.com/large/Screenshot_2024-04-23_184132_1713877978218.png?downsize=950:*">
+        </div>
+    </div>
+    <div class="box-container4">
+        <div class="box7">
+            <img src="https://duet-cdn.vox-cdn.com/thumbor/0x0:2040x1360/1200x800/filters:focal(1020x680:1021x681):format(webp)/cdn.vox-cdn.com/uploads/chorus_asset/file/24038602/acastro_STK109_microsoft.jpg">
+        </div>
+        <div class="box8">
+            <h1>Why is Windows 11 so annoying?</h1>
+            <p>
+                A couple of weeks ago, I ran out of screen on the one external monitor my work-issued MacBook Air can run. So I switched to my five-year-old Windows desktop and plugged in another monitor. Love it. Productivity through the roof. But it means that I’m finally spending significant time in Windows 11, and gosh, is it janky.
+                There are some things that Windows does very well compared to macOS and Linux. All the games are there, for one thing, and Windows runs on all sorts of hardware without a lot of fiddling. You do not have to spend a thousand dollars minimum on a non-upgradable machine to use it. You also generally do not have to download a bunch of drivers or spend six hours in the command line hand-assembling the goddamn operating system.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

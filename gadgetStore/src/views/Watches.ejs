@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExploreGadgets</title>
+    <style>
+        /* Reset default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #c9d6ff;
+            background-image: url('background-image.jpg'); /* Replace with actual background image URL */
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
+            position: relative; /* Ensure absolute positioning is relative to the body */
+        }
+
+        /* Control center container styles */
+        .Box {
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* Shadow effect */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 600px; /* Set the height of the box */
+            margin-bottom: 10px;
+            overflow: hidden; /* Prevent video overflow */
+        }
+
+        .box-container1 {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .box1 {
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* Shadow effect */
+            height: 500px; /* Set the height of the box */
+            width: 100%;
+            margin-right: 10px;
+            overflow: hidden; /* Ensure image stays within box boundaries */
+            margin-bottom: 10px;
+            position: relative; /* Enable absolute positioning inside */
+        }
+
+        .box1:hover .details {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .box2 {
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* Shadow effect */
+            height: 300px; /* Set the height of the box */
+            width: 25%; /* Adjust width as needed */
+            display: flex;
+            height: 400px;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* Ensure image stays within box boundaries */
+            margin-bottom: 10px;
+            margin-right: 10px;
+            position: relative; /* Enable absolute positioning inside */
+        }
+
+        .box2:hover .details {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .box-container2 {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .box3 {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+            height: 400px;
+            width: 75%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative; /* Enable absolute positioning inside */
+        }
+        
+        .box-container3 {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .box4 {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+            height: 400px;
+            width: 40%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative; /* Enable absolute positioning inside */
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .box5 {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+            height: 400px;
+            width: 60%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative; /* Enable absolute positioning inside */
+        }
+
+        .details {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1; /* Ensure the details layer is above the image */
+        }
+
+        .box3:hover .details {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .details-content {
+            text-align: center;
+            padding: 20px;
+            color: #333;
+        }
+
+        .details-content h3 {
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        .details-content p {
+            font-size: 16px;
+        }
+
+        /* Image styles */
+        img {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto; /* Center the image horizontally */
+            border-radius: 20px; /* Rounded corners for the image */
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px; /* Rounded corners for the video */
+            object-fit: cover; /* Cover the entire box without distortion */
+            object-position: center; /* Center the video within the box */
+            /* Hide video controls */
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        .Big-box {
+        margin-top: 90px;
+        width: 1000px;
+        height: 750px;
+        background-color: rgba(81, 45, 168, 0.5);
+        border-radius: 20px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+        position: absolute;
+        display: none; /* Added display flex */
+        justify-content: center; /* Center content horizontally */
+        align-items: center; /* Center content vertically */
+        margin-bottom: 90px;
+    }
+
+    .top-buttons-container {
+        position: absolute;
+        top: 50px;
+        left: 40px;
+        display: flex;
+        z-index: 1;
+    }
+    .top-button {
+        background-color: #c9d6ff;
+        border: solid 2px #c9d6ff;
+        color: #512da8;
+        padding: 10px 20px; /* Adjust padding as needed */
+        cursor: pointer;
+        border-radius: 25px; /* Rounded corners for cylindrical shape */
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .top-button:hover {
+        background-color: #512da8;
+        color: #c9d6ff;
+    }
+
+    .image-slider {
+        width: 50%; /* Adjust width as needed */
+        overflow: hidden;
+        position: relative;
+        border: 2px outset;
+        border-radius: 20px;
+        background-color: #f0f0f0;
+    }
+    .image-slider img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    .slider-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        z-index: 1;
+    }
+    .slider-nav button {
+        background-color: rgba(255, 255, 255, 0.5);
+        border: none;
+        color: #333;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 10px; /* Rounded corners for buttons */
+    }
+    .slider-nav button:hover {
+        background-color: transparent;
+    }
+    .specifications {
+        color: #c9d6ff;
+        width: 50%;
+        height: 450px;
+        padding: 20px;
+        border: 2px outset;
+        border-radius: 20px; /* Rounded corners for squircle shape */
+        background-color: transparent; /* Set background to transparent */
+    }
+    .specifications h1 {
+        margin-top: 0px;
+        font-size: 24px;
+        color: #512da8;
+        margin-left: 10px;
+    }
+    .spec-list {
+        list-style-type: none;
+        padding: 15px;
+    }
+    .spec-list li {
+        margin-bottom: 10px;
+    }
+    .spec-list li strong {
+        font-weight: bold;
+    }
+    .buy-button-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1;
+  }
+
+  .buy-button1 {
+    background-color: #c9d6ff;
+    color: #512da8;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .buy-button1:hover {
+    transform: scale(1.1);
+  }
+
+  .buy-button2 {
+    background-color: #c9d6ff;
+    color: #512da8;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .buy-button2:hover {
+    transform: scale(1.1);
+  }
+
+  .buy-button3 {
+    background-color: #c9d6ff;
+    color: #512da8;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .buy-button3:hover {
+    transform: scale(1.1); 
+  }
+
+  .buy-button4 {
+    background-color: #c9d6ff;
+    color: #512da8;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .buy-button4:hover {
+    transform: scale(1.1); 
+  }
+
+  .blur-background {
+  filter: blur(2px);
+}
+    </style>
+</head>
+<body>
+    <div class="Box">
+        <img src="https://www.apple.com/in/apple-watch-se/images/overview/hero/hero__d5yx0jn6usae_large_2x.jpg">
+    </div>
+    <div class="box-container1">
+        <div class="box1" id="box1">
+            <img src="https://images.samsung.com/is/image/samsung/assets/in/20240114/1328x620_Tile-4.jpg?$ORIGIN_JPG$">
+            <div class="details">
+                <div class="details-content">
+                    <h3>Introducing BP & ECG</h3>
+                    <p>Galaxy Watch6 Series</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="box-container2">
+        <div class="box2" id="box2">
+            <img src="https://www.apple.com/in/apple-watch-se/images/overview/sleep/sleep__em0ukprcntyu_large_2x.jpg">
+            <div class="details">
+                <div class="details-content">
+                    <h3>Carbon Neutral</h3>
+                    <p>A first for Apple Watch.
+                        And Apple.</p>
+                </div>
+            </div>
+        </div>
+        <div class="box3" id="box3">
+            <img src="https://www.apple.com/in/apple-watch-se/images/overview/watchos/watchos__byzrravk9amq_large_2x.jpg">
+            <div class="details">
+                <div class="details-content">
+                    <h3>watchOS 10</h3>
+                    <p>Everything you love. Like never before.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="box-container3">
+        <div class="box4" id="box4">
+            <video autoplay loop muted controlsList="nodownload" width="100%" height="100%">
+                <source src="https://storage.googleapis.com/mannequin/blobs/7914dca1-155e-4d04-98af-445731686200.webm" type="video/mp4">
+                <!-- Include other video sources if needed (e.g., WebM, Ogg) -->
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="box5" id="box5">
+            <video autoplay loop muted controlsList="nodownload" width="100%" height="100%">
+                <source src="https://storage.googleapis.com/mannequin/blobs/2f3146ee-8eb1-4dab-90a8-e1bb6a88600c.mp4" type="video/mp4">
+                <!-- Include other video sources if needed (e.g., WebM, Ogg) -->
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+    <div class="Big-box" id="Big-box">
+        <div class="top-buttons-container">
+            <button class="top-button" onclick="showSlider(1)">Galaxy Watch 6</button>
+            <button class="top-button" onclick="showSlider(2)">Galaxy Watch 6 Classic</button>
+            <button class="top-button" onclick="showSlider(3)">Apple  Watch Series 9</button>
+            <button class="top-button" onclick="showSlider(4)">Google Pixel Watch 2</button>
+        </div>
+        <div class="image-slider" id="slider1">
+          <img src="https://images.samsung.com/is/image/samsung/p6pim/in/2307/gallery/in-galaxy-watch6-r935-sm-r930nzeains-537406387?$1300_1038_PNG$" alt="Image 1">
+          <img src="https://images.samsung.com/is/image/samsung/p6pim/in/sm-r930nzeains/gallery/in-galaxy-watch6-r935-sm-r930nzeains-539690883_10139105052441?$684_547_PNG$" alt="Image 2">
+          <img src="https://images.samsung.com/is/image/samsung/p6pim/in/2307/gallery/in-galaxy-watch6-r935-sm-r930nzeains-537406376?$684_547_PNG$" alt="Image 3">
+          <img src="https://images.samsung.com/is/image/samsung/p6pim/in/2307/gallery/in-galaxy-watch6-r935-sm-r930nzeains-537406377?$684_547_PNG$" alt="Image 4">
+          <img src="https://images.samsung.com/is/image/samsung/p6pim/in/2307/gallery/in-galaxy-watch6-r935-sm-r930nzeains-537406378?$684_547_PNG$" alt="Image 5">
+          <img src="https://images.samsung.com/is/image/samsung/p6pim/in/2307/gallery/in-galaxy-watch6-r935-sm-r930nzeains-537406379?$684_547_PNG$" alt="Image 6">
+          <div class="slider-nav">
+            <button onclick="prevSlide(1)">&#10094; Prev</button>
+            <button onclick="nextSlide(1)">Next &#10095;</button>
+          </div>
+        </div>
+        <div class="image-slider" id="slider2">
+          <img src="https://images.samsung.com/is/image/samsung/p6pim/in/2307/gallery/in-galaxy-watch6-classic-r955-sm-r950nzsains-537405970?$1300_1038_PNG$" alt="Image 1">
+          <img src="https://images.samsung.com/is/image/samsung/p6pim/in/2307/gallery/in-galaxy-watch6-classic-r955-sm-r950nzsains-537405959?$684_547_PNG$" alt="Image 2">
+          <img src="https://images.samsung.com/is/image/samsung/p6pim/in/2307/gallery/in-galaxy-watch6-classic-r955-sm-r950nzsains-537405963?$684_547_PNG$" alt="Image 3">
+          <img src="https://images.samsung.com/is/image/samsung/p6pim/in/2307/gallery/in-galaxy-watch6-classic-r955-sm-r950nzsains-537405960?$684_547_PNG$" alt="Image 4">
+          <img src="https://images.samsung.com/is/image/samsung/p6pim/in/2307/gallery/in-galaxy-watch6-classic-r955-sm-r950nzsains-537405961?$684_547_PNG$" alt="Image 5">
+          <img src="https://images.samsung.com/is/image/samsung/p6pim/in/2307/gallery/in-galaxy-watch6-classic-r955-sm-r950nzsains-537405962?$684_547_PNG$" alt="Image 6">
+          <div class="slider-nav">
+            <button onclick="prevSlide(2)">&#10094; Prev</button>
+            <button onclick="nextSlide(2)">Next &#10095;</button>
+          </div>
+        </div>
+        <div class="image-slider" id="slider3">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/watch-s9-digitalmat-gallery-1-202309_GEO_IN?wid=728&hei=666&fmt=png-alpha&.v=1693846399313" alt="Image 1">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/watch-s9-digitalmat-gallery-2-202309?wid=728&hei=666&fmt=png-alpha&.v=1692847849852" alt="Image 2">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/watch-s9-digitalmat-gallery-3-202403_GEO_IN?wid=728&hei=666&fmt=png-alpha&.v=1708667676742" alt="Image 3">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/watch-s9-digitalmat-gallery-4-202309_GEO_IN?wid=728&hei=666&fmt=png-alpha&.v=1693846504004" alt="Image 4">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/watch-s9-digitalmat-gallery-5-202403?wid=728&hei=666&fmt=png-alpha&.v=1708667701796" alt="Image 5">
+          <div class="slider-nav">
+            <button onclick="prevSlide(3)">&#10094; Prev</button>
+            <button onclick="nextSlide(3)">Next &#10095;</button>
+          </div>
+        </div>
+        <div class="image-slider" id="slider4">
+          <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/smartwatch/3/0/t/-original-imagxp8twmkchwrd.jpeg?q=70&crop=false" alt="Image 1">
+          <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/smartwatch/p/u/b/41-ga05029-gb-android-google-no-original-imagtf3rxyepwhdt.jpeg?q=70&crop=false" alt="Image 2">
+          <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/smartwatch/e/a/q/41-ga05029-gb-android-google-no-original-imagtf3r6yzrgwdk.jpeg?q=70&crop=false" alt="Image 3">
+          <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/smartwatch/h/z/r/-original-imagtz8yp3grz6qu.jpeg?q=70&crop=false" alt="Image 4">
+          <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/smartwatch/o/t/y/41-ga05029-gb-android-google-no-original-imagtf3rbzcbzh83.jpeg?q=70&crop=false" alt="Image 5">
+          <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/smartwatch/f/l/f/-original-imagtz8yr5eazsft.jpeg?q=70&crop=false" alt="Image 6">
+          <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/smartwatch/z/p/o/-original-imagtz8yhywnggnd.jpeg?q=70&crop=false" alt="Image 7">
+          <div class="slider-nav">
+            <button onclick="prevSlide(4)">&#10094; Prev</button>
+            <button onclick="nextSlide(4)">Next &#10095;</button>
+          </div>
+        </div>
+        <div class="specifications" id="specs1">
+          <h1>Galaxy Watch 6</h1>
+          <ul class="spec-list">
+            <li><strong>Network/Bearer
+                Infra
+                Wi-Fi,Bluetooth</strong></li>
+            <li><strong>Audio and Video
+                Audio Playing Format
+                MP3,M4A,3GA,AAC,OGG,OGA,WAV,AMR,AWB
+            </strong></li>
+            <li><strong>OS
+                Wear OS Powered by Samsung
+            </strong></li>
+            <li><strong>Display
+                Technology (Main Display)
+                Super AMOLED
+                 
+                Size (Main Display)
+                3.33cm (1.3")</strong></li>
+            <li><strong>Battery
+                Battery Capacity (mAh, Typical)
+                300
+                 
+                Removable
+                No
+                 
+                Usage Time (AOD Off)
+                Up to 40 Hours
+                 
+                Usage Time (AOD On)
+                Up to 30 Hours</strong></li>
+            <li><strong>Physical specification
+                Dimension (HxWxD)
+                38.8 x 40.4 x 9.0 mm
+                 
+                Weight
+                28.7 g</strong></li>
+            <!-- Add more specifications here -->
+            </ul>
+          <div class="buy-button-container">
+            <button class="buy-button1">Buy Now</button>
+          </div>
+        </div>
+        <div class="specifications" id="specs2">
+          <h1>Galaxy Watch 6 Classic</h1>
+          <ul class="spec-list">
+            <li><strong>NFC
+                NFC
+                 
+                Bluetooth Version
+                Bluetooth v5.3
+                 
+                Size (Main Display)
+                3.33cm (1.3")</strong></li>
+            <li><strong>Network/Bearer
+                Infra
+                Wi-Fi,Bluetooth</strong></li>
+            <li><strong>Display
+                Technology (Main Display)
+                Super AMOLED
+                 
+                Size (Main Display)
+                3.33cm (1.3")
+                 
+                Resolution (Main Display)
+                432 x 432
+                 
+                Colour Depth (Main Display)
+                16M</strong></li>
+            <li><strong>Physical specification
+                Dimension (HxWxD)
+                42.5 x 42.5 x 10.9 mm
+                 
+                Weight
+                52.0 g</strong></li>
+            <li><strong>Battery
+                Battery Capacity (mAh, Typical)
+                300
+                 
+                Removable
+                No
+                 
+                Usage Time (AOD Off)
+                Up to 40 Hours
+                 
+                Usage Time (AOD On)
+                Up to 30 Hours</strong></li>
+            <!-- Add more specifications here -->
+          </ul>
+          <div class="buy-button-container">
+            <button class="buy-button2">Buy Now</button>
+          </div>
+        </div>
+        <div class="specifications" id="specs3">
+          <h1>Apple Watch Series 9</h1>
+          <ul>
+            <li><strong>Brighter Always-On Retina display with a durable, crack-resistant front crystal</strong></li>
+            <li><strong>Get deep insights into your physical and mental health including heart rate,  footnote  1 blood oxygen levels,  footnote  2 mood and more
+            </strong></li>
+            <li><strong>With advanced workout metrics and views</strong></li>
+            <li><strong>The all-new S9 SiP powers a magical new way to use your watch without touching the screen</strong></li>
+            <li><strong>Innovative safety features including Emergency SOS,  footnote  3 Fall Detection and Crash Detection
+            </strong></li>
+          </ul>
+          <div class="buy-button-container">
+            <button class="buy-button3">Buy Now</button>
+          </div>
+        </div>
+        <div class="specifications" id="specs4">
+          <h1>Google Pixel Watch 2</h1>
+          <ul>
+            <li><strong>Materials and finishes
+                Housing: 100% recycled aluminium2
+                
+                Active Band: Fluoroelastomer with soft-touch coating</strong></li>
+            <li><strong>Dimensions and weight
+                Diameter: 41 mm
+                
+                Height: 12.3 mm
+                
+                31 g (without band)
+                
+                </strong></li>
+            <li><strong>Connectivity
+                Bluetooth® 5.0
+                
+                Wi-Fi 802.11 b/g/n 2.4 GHz
+                
+                NFC
+                
+                </strong></li>
+            <li><strong>GPS
+                GPS, GLONASS, BeiDou, Galileo, Quasi-Zenith Satellite
+                </strong></li>
+            <li><strong>Chip
+                Qualcomm 5100
+                
+                Cortex M33 co-processor</strong></li>
+          </ul>
+          <div class="buy-button-container">
+            <button class="buy-button4">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    <script>
+        const boxes = document.querySelectorAll('.box1, .box2, .box3, .box4, .box5');
+const bigBox = document.querySelector('.Big-box');
+
+// Add click event listeners to each box
+boxes.forEach((box) => {
+  box.addEventListener('click', () => {
+    // Add the blur class to the body
+    // document.body.classList.add('blur-background');
+
+    // Show the Big-box with a smooth transition
+    const offsetLeft = box.offsetLeft;
+    const offsetTop = box.offsetTop;
+    const width = box.offsetWidth;
+    const height = box.offsetHeight;
+
+    bigBox.style.display = 'flex';
+    bigBox.style.justifyContent = 'center';
+    bigBox.style.alignItems = 'center';
+    bigBox.style.position = 'fixed';
+    bigBox.style.left = '20%';
+    bigBox.style.top = '0%';
+    // bigBox.style.width = `${width}px`;
+    // bigBox.style.height = `${height}px`;
+    bigBox.style.opacity = '0';
+    bigBox.style['backdrop-filter'] = 'blur(3px)';
+    bigBox.style.transition = 'opacity 0.3s ease, width 0.3s ease, height 0.3s ease';
+
+    setTimeout(() => {
+      bigBox.style.opacity = '1';
+    }, 1);
+
+    // Add a click event listener to the Big-box to hide it and remove the blur effect
+    bigBox.addEventListener('click', (event) => {
+      // Prevent the default behavior of the event and stop the event propagation
+      event.stopPropagation();
+    });
+
+    // Add a double click event listener to the Big-box to hide it
+    bigBox.addEventListener('dblclick', () => {
+      // Remove the blur class from the body
+      document.body.classList.remove('blur-background');
+
+      // Hide the Big-box with a smooth transition
+      bigBox.style.opacity = '0';
+      setTimeout(() => {
+        bigBox.style.display = 'none';
+      }, 300);
+    });
+
+    // Add a click event listener to the document to prevent other boxes from working
+    document.addEventListener('click', (event) => {
+      // Check if the target of the event is not the Big-box or its descendants
+      if (!bigBox.contains(event.target)) {
+        // Prevent the default behavior of the event and stop the event propagation
+        event.stopPropagation();
+      }
+    });
+  });
+});
+
+        let slideIndex1 = 0;
+        let slideIndex2 = 0;
+        let slideIndex3 = 0;
+        let slideIndex4 = 0;
+
+        const slides1 = document.querySelectorAll('#slider1 img');
+        const slides2 = document.querySelectorAll('#slider2 img');
+        const slides3 = document.querySelectorAll('#slider3 img');
+        const slides4 = document.querySelectorAll('#slider4 img');
+
+        function showSlide1(n) {
+            slides1.forEach(slide => slide.style.display = 'none');
+            if (n >= slides1.length) {
+                slideIndex1 = 0;
+            } else if (n < 0) {
+                slideIndex1 = slides1.length - 1;
+            }
+            slides1[slideIndex1].style.display = 'block';
+        }
+
+        function showSlide2(n) {
+            slides2.forEach(slide => slide.style.display = 'none');
+            if (n >= slides2.length) {
+                slideIndex2 = 0;
+            } else if (n < 0) {
+                slideIndex2 = slides2.length - 1;
+            }
+            slides2[slideIndex2].style.display = 'block';
+        }
+
+        function showSlide3(n) {
+            slides3.forEach(slide => slide.style.display = 'none');
+            if (n >= slides3.length) {
+                slideIndex3 = 0;
+            } else if (n < 0) {
+                slideIndex3 = slides3.length - 1;
+            }
+            slides3[slideIndex3].style.display = 'block';
+        }
+
+        function showSlide4(n) {
+            slides4.forEach(slide => slide.style.display = 'none');
+            if (n >= slides4.length) {
+                slideIndex4 = 0;
+            } else if (n < 0) {
+                slideIndex4 = slides4.length - 1;
+            }
+            slides4[slideIndex4].style.display = 'block';
+        }
+
+        function nextSlide(slider) {
+            if (slider === 1) {
+                showSlide1(++slideIndex1);
+            } else if (slider === 2) {
+                showSlide2(++slideIndex2);
+            } else if (slider === 3) {
+                showSlide3(++slideIndex3);
+            } else if (slider === 4) {
+                showSlide4(++slideIndex4);
+            }
+        }
+
+        function prevSlide(slider) {
+            if (slider === 1) {
+                showSlide1(--slideIndex1);
+            } else if (slider === 2) {
+                showSlide2(--slideIndex2);
+            } else if (slider === 3) {
+                showSlide3(--slideIndex3);
+            } else if (slider === 4) {
+                showSlide4(--slideIndex4);
+            }
+        }
+
+        function showSlider(slider) {
+            if (slider === 1) {
+                document.getElementById('slider1').style.display = 'block';
+                document.getElementById('slider2').style.display = 'none';
+                document.getElementById('slider3').style.display = 'none';
+                document.getElementById('slider4').style.display = 'none';
+                document.getElementById('specs1').style.display = 'block';
+                document.getElementById('specs2').style.display = 'none';
+                document.getElementById('specs3').style.display = 'none';
+                document.getElementById('specs4').style.display = 'none';
+                showSlide1(slideIndex1);
+            } else if (slider === 2) {
+                document.getElementById('slider1').style.display = 'none';
+                document.getElementById('slider2').style.display = 'block';
+                document.getElementById('slider3').style.display = 'none';
+                document.getElementById('slider4').style.display = 'none';
+                document.getElementById('specs1').style.display = 'none';
+                document.getElementById('specs2').style.display = 'block';
+                document.getElementById('specs3').style.display = 'none';
+                document.getElementById('specs4').style.display = 'none';
+                showSlide2(slideIndex2);
+            } else if (slider === 3) {
+                document.getElementById('slider1').style.display = 'none';
+                document.getElementById('slider2').style.display = 'none';
+                document.getElementById('slider3').style.display = 'block';
+                document.getElementById('slider4').style.display = 'none';
+                document.getElementById('specs1').style.display = 'none';
+                document.getElementById('specs2').style.display = 'none';
+                document.getElementById('specs3').style.display = 'block';
+                document.getElementById('specs4').style.display = 'none';
+                showSlide3(slideIndex3);
+            } else if (slider === 4) {
+                document.getElementById('slider1').style.display = 'none';
+                document.getElementById('slider2').style.display = 'none';
+                document.getElementById('slider3').style.display = 'none';
+                document.getElementById('slider4').style.display = 'block';
+                document.getElementById('specs1').style.display = 'none';
+                document.getElementById('specs2').style.display = 'none';
+                document.getElementById('specs3').style.display = 'none';
+                document.getElementById('specs4').style.display = 'block';
+                showSlide4(slideIndex4);
+            }
+        }
+
+        showSlider(1); 
+    </script>
+</body>
+</html>

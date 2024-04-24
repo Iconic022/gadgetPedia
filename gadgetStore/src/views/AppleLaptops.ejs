@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GooglePixel Details</title>
+<style>
+    body {
+        background-color: #512da8; /* Updated color */
+        background: linear-gradient(to right, #c9d6ff, #e2e2e2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .Big-box {
+            background-color: #512da8; /* Updated color */
+            background: linear-gradient(to right, #c9d6ff, #e2e2e2); /* Semi-transparent white background */
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* Shadow effect */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 500px; /* Set the height of the box */
+            width: 500px;
+            overflow: hidden; /* Prevent video overflow */
+            transform: rotate(90deg);
+            margin-right: 20px;
+        }
+
+    .details {
+        margin-right: 20px;
+        width: 1000px;
+        height: 750px;
+        background-color: rgba(81, 45, 168, 0.5);
+        border-radius: 20px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+        position: relative;
+        display: flex; /* Added display flex */
+        justify-content: center; /* Center content horizontally */
+        align-items: center; /* Center content vertically */
+    }
+
+    .top-buttons-container {
+        position: absolute;
+        top: 50px;
+        left: 40px;
+        display: flex;
+        z-index: 1;
+    }
+    .top-button {
+        background-color: #c9d6ff;
+        border: solid 2px #c9d6ff;
+        color: #512da8;
+        padding: 10px 20px; /* Adjust padding as needed */
+        cursor: pointer;
+        border-radius: 25px; /* Rounded corners for cylindrical shape */
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .top-button:hover {
+        background-color: #512da8;
+        color: #c9d6ff;
+    }
+
+    .image-slider {
+        width: 50%; /* Adjust width as needed */
+        overflow: hidden;
+        position: relative;
+        border: 2px outset;
+        border-radius: 20px;
+        background-color: #f0f0f0;
+    }
+    .image-slider img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    .slider-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        z-index: 1;
+    }
+    .slider-nav button {
+        background-color: rgba(255, 255, 255, 0.5);
+        border: none;
+        color: #333;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 10px; /* Rounded corners for buttons */
+    }
+    .slider-nav button:hover {
+        background-color: transparent;
+    }
+    .specifications {
+        color: #c9d6ff;
+        width: 50%;
+        height: 450px;
+        padding: 20px;
+        border: 2px outset;
+        border-radius: 20px; /* Rounded corners for squircle shape */
+        background-color: transparent; /* Set background to transparent */
+    }
+    .specifications h1 {
+        margin-top: 0px;
+        font-size: 24px;
+        color: #512da8;
+        margin-left: 10px;
+    }
+    .spec-list {
+        list-style-type: none;
+        padding: 15px;
+    }
+    .spec-list li {
+        margin-bottom: 10px;
+    }
+    .spec-list li strong {
+        font-weight: bold;
+    }
+    .buy-button-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1;
+  }
+
+  .buy-button1 {
+    background-color: #c9d6ff;
+    color: #512da8;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .buy-button1:hover {
+    transform: scale(1.1);
+  }
+
+  .buy-button2 {
+    background-color: #c9d6ff;
+    color: #512da8;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .buy-button2:hover {
+    transform: scale(1.1);
+  }
+
+  .buy-button3 {
+    background-color: #c9d6ff;
+    color: #512da8;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .buy-button3:hover {
+    transform: scale(1.1); 
+  }
+
+  .buy-button4 {
+    background-color: #c9d6ff;
+    color: #512da8;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .buy-button4:hover {
+    transform: scale(1.1); 
+  }
+
+</style>
+</head>
+<body>
+  <div class="Big-box">
+    <!-- Video box -->
+    <video autoplay loop muted controlsList="nodownload" width="100%" height="100%">
+        <source src="https://www.apple.com/105/media/us/macbook-pro/2023/232a2dbf-5898-4fd1-a350-6a7c5c2e31c9/anim/highlights-chips/large_2x.mp4" type="video/mp4">
+        <!-- Include other video sources if needed (e.g., WebM, Ogg) -->
+        Your browser does not support the video tag.
+    </video>
+</div>
+    <div class="details" id="box1">
+        <div class="top-buttons-container">
+            <button class="top-button" onclick="showSlider(1)">MacBook Air M3</button>
+            <button class="top-button" onclick="showSlider(2)">MacBook Air M2</button>
+            <button class="top-button" onclick="showSlider(3)">MacBook Pro 16"</button>
+            <button class="top-button" onclick="showSlider(4)">iMac</button>
+        </div>
+        <div class="image-slider" id="slider1">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mba15-m3-digitalmat-gallery-1-202402?wid=728&hei=666&fmt=png-alpha&.v=1707264003711" alt="Image 1">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mba15-m3-digitalmat-gallery-2-202402?wid=728&hei=666&fmt=png-alpha&.v=1708034273607" alt="Image 2">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mba15-m3-digitalmat-gallery-3-202402?wid=728&hei=666&fmt=png-alpha&.v=1707264003462" alt="Image 3">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mba15-m3-digitalmat-gallery-4-202402?wid=728&hei=666&fmt=png-alpha&.v=1707779357401" alt="Image 4">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mba15-m3-digitalmat-gallery-5-202402?wid=728&hei=666&fmt=png-alpha&.v=1707264003822" alt="Image 5">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mba15-m3-digitalmat-gallery-6-202402?wid=728&hei=666&fmt=jpeg&qlt=90&.v=1707264003940" alt="Image 6">
+          <div class="slider-nav">
+            <button onclick="prevSlide(1)">&#10094; Prev</button>
+            <button onclick="nextSlide(1)">Next &#10095;</button>
+          </div>
+        </div>
+        <div class="image-slider" id="slider2">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mba13-m2-digitalmat-gallery-1-202402?wid=728&hei=666&fmt=png-alpha&.v=1707263976493" alt="Image 1">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mba13-m2-digitalmat-gallery-2-202402?wid=728&hei=666&fmt=png-alpha&.v=1708032703636" alt="Image 2">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mba13-m2-digitalmat-gallery-4-202402?wid=728&hei=666&fmt=png-alpha&.v=1707779153140" alt="Image 3">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mba13-m2-digitalmat-gallery-5-202402?wid=728&hei=666&fmt=png-alpha&.v=1707263976434" alt="Image 4">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/macbook-air-digitalmat-gallery-7-202206?wid=728&hei=666&fmt=png-alpha&.v=1652827325557" alt="Image 5">
+          <div class="slider-nav">
+            <button onclick="prevSlide(2)">&#10094; Prev</button>
+            <button onclick="nextSlide(2)">Next &#10095;</button>
+          </div>
+        </div>
+        <div class="image-slider" id="slider3">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mbp-16-digitalmat-gallery-1-202310?wid=728&hei=666&fmt=jpeg&qlt=90&.v=1696971483270" alt="Image 1">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mbp-16-digitalmat-gallery-2-202310?wid=728&hei=666&fmt=png-alpha&.v=1697917474258" alt="Image 2">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mbp-16-digitalmat-gallery-3-202310?wid=728&hei=666&fmt=png-alpha&.v=1696971483097" alt="Image 3">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mbp-16-digitalmat-gallery-4-202310?wid=728&hei=666&fmt=png-alpha&.v=1696971485125" alt="Image 4">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mbp-16-digitalmat-gallery-5-202310?wid=728&hei=666&fmt=png-alpha&.v=1696971485314" alt="Image 5">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mbp-16-digitalmat-gallery-6-202310?wid=728&hei=666&fmt=png-alpha&.v=1696971485782" alt="Image 6">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mbp-16-digitalmat-gallery-7-202310?wid=728&hei=666&fmt=png-alpha&.v=1698098020318" alt="Image 7">
+          <div class="slider-nav">
+            <button onclick="prevSlide(3)">&#10094; Prev</button>
+            <button onclick="nextSlide(3)">Next &#10095;</button>
+          </div>
+        </div>
+        <div class="image-slider" id="slider4">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/imac24-digitalmat-gallery-1-202310?wid=728&hei=666&fmt=png-alpha&.v=1697559004117" alt="Image 1">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/imac24-digitalmat-gallery-2-202310?wid=728&hei=666&fmt=png-alpha&.v=1697559004207" alt="Image 2">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/imac24-digitalmat-gallery-3-202310?wid=728&hei=666&fmt=png-alpha&.v=1697559004001" alt="Image 3">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/imac24-digitalmat-gallery-4-202310?wid=728&hei=666&fmt=png-alpha&.v=1697559005165" alt="Image 4">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/imac24-digitalmat-gallery-5-202310?wid=728&hei=666&fmt=png-alpha&.v=1697559006051" alt="Image 5">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/imac24-digitalmat-gallery-6-202310?wid=728&hei=666&fmt=png-alpha&.v=1697559008014" alt="Image 6">
+          <div class="slider-nav">
+            <button onclick="prevSlide(4)">&#10094; Prev</button>
+            <button onclick="nextSlide(4)">Next &#10095;</button>
+          </div>
+        </div>
+        <div class="specifications" id="specs1">
+          <h1>MacBook Air M3</h1>
+          <ul class="spec-list">
+            <li><strong>Portable design — Lightweight and less than two centimeters thin, so you can take MacBook Air anywhere you go.</strong></li>
+            <li><strong>Get more done faster — The powerful 8-core CPU and 10-core GPU of the Apple M3 chip keep things running smoothly.</strong></li>
+            <li><strong>Up to 18 hours of battery life — Amazing, all-day battery life so you can leave the power adapter at home.  footnote  ¹</strong></li>
+            <li><strong>More room for what you love — The 15.3-inch Liquid Retina display supports 1 billion colours.  footnote  ²</strong></li>
+            <li><strong>Look sharp, sound great — Everything looks and sounds amazing with a 1080p FaceTime HD camera, three mics, and six speakers with Spatial Audio.</strong></li>
+            <!-- Add more specifications here -->
+            </ul>
+          <div class="buy-button-container">
+            <button class="buy-button1">Buy Now</button>
+          </div>
+        </div>
+        <div class="specifications" id="specs2">
+          <h1>MacBook Air M2</h1>
+          <ul class="spec-list">
+            <li><strong>Portable design — Lightweight and less than two centimeters thin, so you can take MacBook Air anywhere you go.</strong></li>
+            <li><strong>Get more done faster — The powerful 8-core CPU and up to 10-core GPU of the Apple M2 chip keep things running smoothly.</strong></li>
+            <li><strong>Up to 18 hours of battery life — Amazing, all-day battery life so you can leave the power adapter at home.¹</strong></li>
+            <li><strong>A brilliant display — The 13.6-inch Liquid Retina display supports 1 billion colours.²</strong></li>
+            <li><strong>Look sharp, sound great — Everything looks and sounds amazing with a 1080p FaceTime HD camera, three mics, and four speakers with Spatial Audio.</strong></li>
+            <!-- Add more specifications here -->
+          </ul>
+          <div class="buy-button-container">
+            <button class="buy-button2">Buy Now</button>
+          </div>
+        </div>
+        <div class="specifications" id="specs3">
+          <h1>MacBook Pro 16"</h1>
+          <ul>
+            <li><strong>With M3 Pro or M3 Max, our most advanced chips for personal computers, MacBook Pro empowers you to take on the most demanding projects</strong></li>
+            <li><strong>Go all day with up to 22 hours of battery life Footnote¹</strong></li>
+            <li><strong>Liquid Retina XDR display is the ultimate for creators on the move, with Extreme Dynamic Range, incredible contrast and true-to-life colours</strong></li>
+            <li><strong>Look sharp and sound clear — anywhere — with the 1080p FaceTime HD camera, three studio-quality mics and six speakers with Spatial Audio</strong></li>
+            <li><strong>Connect everything you need with three Thunderbolt 4 ports, an SDXC card slot, an HDMI port, a MagSafe 3 port and a headphone jack</strong></li>
+          </ul>
+          <div class="buy-button-container">
+            <button class="buy-button3">Buy Now</button>
+          </div>
+        </div>
+        <div class="specifications" id="specs4">
+          <h1>iMac</h1>
+          <ul>
+            <li><strong>Supercharged by the Apple M3 chip, so everything you do on your iMac is incredibly fast and responsive</strong></li>
+            <li><strong>Immersive 24" 4.5K Retina display Footnote¹</strong></li>
+            <li><strong>Strikingly thin all-in-one desktop in seven vibrant colours</strong></li>
+            <li><strong>Look sharp and sound great with the 1080p FaceTime HD camera, three-mic array and six‑speaker sound system with Spatial Audio</strong></li>
+            <li><strong>Colour-matched Magic Mouse and Magic Keyboard included
+            </strong></li>
+          </ul>
+          <div class="buy-button-container">
+            <button class="buy-button4">Buy Now</button>
+          </div>
+        </div>
+      </div>
+      
+      <script>
+
+        let slideIndex1 = 0;
+        let slideIndex2 = 0;
+        let slideIndex3 = 0;
+        let slideIndex4 = 0;
+
+        const slides1 = document.querySelectorAll('#slider1 img');
+        const slides2 = document.querySelectorAll('#slider2 img');
+        const slides3 = document.querySelectorAll('#slider3 img');
+        const slides4 = document.querySelectorAll('#slider4 img');
+
+        function showSlide1(n) {
+            slides1.forEach(slide => slide.style.display = 'none');
+            if (n >= slides1.length) {
+                slideIndex1 = 0;
+            } else if (n < 0) {
+                slideIndex1 = slides1.length - 1;
+            }
+            slides1[slideIndex1].style.display = 'block';
+        }
+
+        function showSlide2(n) {
+            slides2.forEach(slide => slide.style.display = 'none');
+            if (n >= slides2.length) {
+                slideIndex2 = 0;
+            } else if (n < 0) {
+                slideIndex2 = slides2.length - 1;
+            }
+            slides2[slideIndex2].style.display = 'block';
+        }
+
+        function showSlide3(n) {
+            slides3.forEach(slide => slide.style.display = 'none');
+            if (n >= slides3.length) {
+                slideIndex3 = 0;
+            } else if (n < 0) {
+                slideIndex3 = slides3.length - 1;
+            }
+            slides3[slideIndex3].style.display = 'block';
+        }
+
+        function showSlide4(n) {
+            slides4.forEach(slide => slide.style.display = 'none');
+            if (n >= slides4.length) {
+                slideIndex4 = 0;
+            } else if (n < 0) {
+                slideIndex4 = slides4.length - 1;
+            }
+            slides4[slideIndex4].style.display = 'block';
+        }
+
+        function nextSlide(slider) {
+            if (slider === 1) {
+                showSlide1(++slideIndex1);
+            } else if (slider === 2) {
+                showSlide2(++slideIndex2);
+            } else if (slider === 3) {
+                showSlide3(++slideIndex3);
+            } else if (slider === 4) {
+                showSlide4(++slideIndex4);
+            }
+        }
+
+        function prevSlide(slider) {
+            if (slider === 1) {
+                showSlide1(--slideIndex1);
+            } else if (slider === 2) {
+                showSlide2(--slideIndex2);
+            } else if (slider === 3) {
+                showSlide3(--slideIndex3);
+            } else if (slider === 4) {
+                showSlide4(--slideIndex4);
+            }
+        }
+
+        function showSlider(slider) {
+            if (slider === 1) {
+                document.getElementById('slider1').style.display = 'block';
+                document.getElementById('slider2').style.display = 'none';
+                document.getElementById('slider3').style.display = 'none';
+                document.getElementById('slider4').style.display = 'none';
+                document.getElementById('specs1').style.display = 'block';
+                document.getElementById('specs2').style.display = 'none';
+                document.getElementById('specs3').style.display = 'none';
+                document.getElementById('specs4').style.display = 'none';
+                showSlide1(slideIndex1);
+            } else if (slider === 2) {
+                document.getElementById('slider1').style.display = 'none';
+                document.getElementById('slider2').style.display = 'block';
+                document.getElementById('slider3').style.display = 'none';
+                document.getElementById('slider4').style.display = 'none';
+                document.getElementById('specs1').style.display = 'none';
+                document.getElementById('specs2').style.display = 'block';
+                document.getElementById('specs3').style.display = 'none';
+                document.getElementById('specs4').style.display = 'none';
+                showSlide2(slideIndex2);
+            } else if (slider === 3) {
+                document.getElementById('slider1').style.display = 'none';
+                document.getElementById('slider2').style.display = 'none';
+                document.getElementById('slider3').style.display = 'block';
+                document.getElementById('slider4').style.display = 'none';
+                document.getElementById('specs1').style.display = 'none';
+                document.getElementById('specs2').style.display = 'none';
+                document.getElementById('specs3').style.display = 'block';
+                document.getElementById('specs4').style.display = 'none';
+                showSlide3(slideIndex3);
+            } else if (slider === 4) {
+                document.getElementById('slider1').style.display = 'none';
+                document.getElementById('slider2').style.display = 'none';
+                document.getElementById('slider3').style.display = 'none';
+                document.getElementById('slider4').style.display = 'block';
+                document.getElementById('specs1').style.display = 'none';
+                document.getElementById('specs2').style.display = 'none';
+                document.getElementById('specs3').style.display = 'none';
+                document.getElementById('specs4').style.display = 'block';
+                showSlide4(slideIndex4);
+            }
+        }
+
+        showSlider(1); // Show slider1 by default
+    </script>
+      
+      
+</body>
+</html>
